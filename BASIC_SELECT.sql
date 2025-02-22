@@ -1,0 +1,65 @@
+-- Revising the Select Query I
+SELECT * FROM CITY WHERE POPULATION > 100000 AND COUNTRYCODE = 'USA';
+
+--Revising the Select Query II
+SELECT NAME FROM CITY WHERE POPULATION > 120000 AND COUNTRYCODE = 'USA';
+
+--Select All
+SELECT * FROM CITY;
+
+--Select By ID
+SELECT * FROM CITY WHERE ID = 1661;
+
+--Japanese Cities' Attributes
+SELECT * FROM CITY WHERE COUNTRYCODE = 'JPN';
+
+--Japanese Cities' Names
+SELECT NAME FROM CITY WHERE COUNTRYCODE = 'JPN';
+
+--Weather Observation Station 1
+SELECT CITY, STATE FROM STATION;
+
+--Weather Observation Station 3
+SELECT DISTINCT CITY FROM STATION WHERE ID % 2 = 0;
+
+--Weather Observation Station 4
+SELECT COUNT(CITY) - COUNT(DISTINCT CITY) FROM STATION;
+
+--Weather Observation Station 5
+SELECT CITY, LENGTH(CITY) FROM STATION ORDER BY LENGTH(CITY) ASC, CITY ASC LIMIT 1;
+SELECT CITY, LENGTH(CITY) FROM STATION ORDER BY LENGTH(CITY) DESC, CITY ASC LIMIT 1;
+
+--Weather Observation Station 6
+SELECT CITY FROM STATION WHERE LEFT(CITY, 1) IN ('A','E','I','O','U');
+--or
+SELECT CITY FROM STATION 
+WHERE CITY LIKE 'A%' 
+OR CITY LIKE 'E%'
+OR CITY LIKE 'I%'
+OR CITY LIKE 'O%'
+OR CITY LIKE 'U%';
+
+--Weather Observation Station 7
+SELECT DISTINCT CITY FROM STATION WHERE RIGHT(CITY, 1) IN ('a','e','i','o','u');
+
+--Weather Observation Station 8
+SELECT DISTINCT CITY FROM STATION WHERE LEFT(CITY, 1) IN ('A','E','I','O','U') AND RIGHT(CITY, 1) IN ('a','e','i','o','u');
+
+--Weather Observation Station 9
+SELECT DISTINCT CITY FROM STATION WHERE LEFT(CITY, 1) NOT IN ('A','E','I','O','U');
+
+--Weather Observation Station 10
+SELECT DISTINCT CITY FROM STATION WHERE RIGHT(CITY, 1) NOT IN ('a','e','i','o','u');
+
+--Weather Observation Station 12
+SELECT DISTINCT CITY FROM STATION WHERE LEFT(CITY, 1) NOT IN ('A','E','I','O','U') AND RIGHT(CITY, 1) NOT IN ('a','e','i','o','u');
+
+--Higher Than 75 Marks
+SELECT Name FROM STUDENTS WHERE Marks > 75 ORDER BY RIGHT(Name,3) ASC, ID ASC;
+
+--Employee Names
+SELECT name FROM Employee ORDER BY name ASC;
+
+--Employee Salaries
+SELECT name FROM Employee WHERE salary > 2000 AND months < 10 ORDER BY employee_id ASC;
+
